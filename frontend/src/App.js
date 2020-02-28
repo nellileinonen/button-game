@@ -24,8 +24,8 @@ const App = () => {
             </div>
             :
             <div>
-                <Score />
                 <AwardInfo />
+                <Score />
                 <Button />
             </div>}
         </div>
