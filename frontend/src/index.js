@@ -4,14 +4,13 @@ import './index.css'
 import App from './App'
 import { Provider } from 'react-redux'
 import store from './store'
-import { transitions, positions, Provider as AlertProvider } from 'react-alert'
-import AlertTemplate from 'react-alert-template-basic'
+import { Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from './components/AlertTemplate'
 
-// Alert cofiguration
+// Configure alert message
 const options = {
-    position: 'middle',
-    timeout: 1000,
-    offset: '30px',
+    timeout: 2000,
+    position: 'top center',
     transition: 'fade'
 }
 
