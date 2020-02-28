@@ -8,6 +8,8 @@ const usernameReducer = (state = initialState, action) => {
             // Clicking the game button adds 1 click to the total amount of clicks in the game
             // to the Redux store
             return action.data.username
+        case 'REMOVE_USERNAME':
+            return null
         default:
             return state
     }

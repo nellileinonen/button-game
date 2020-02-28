@@ -13,3 +13,7 @@ export const createScore = () => ({
         score: 20
     }
 })
+
+export const removeScore = () => ({
+    type: 'REMOVE_SCORE'
+})

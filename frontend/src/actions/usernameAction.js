@@ -1,4 +1,5 @@
 /* Action creator that defines actions for handling username in Redux store. */
+
 export const addUsername = (username) => ({
 
     // TODO: Get token for the newly registered user OR Save redux store to local storage!
@@ -10,4 +11,8 @@ export const addUsername = (username) => ({
     data: {
         username: username
     }
+})
+
+export const removeUsername = () => ({
+    type: 'REMOVE_USERNAME'
 })
