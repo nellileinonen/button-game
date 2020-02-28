@@ -21,4 +21,4 @@ const AlertTemplate = ({ message }) => {
   )
 }
 
-export default AlertTemplate;
+export default AlertTemplate

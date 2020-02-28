@@ -7,5 +7,5 @@ const url = 'http://localhost:8000/register'
 
 export const registerUser = async (credentials) => {
     const response = await axios.post(url, credentials)
-    return response.data
+    return response
 }

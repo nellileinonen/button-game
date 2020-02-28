@@ -1,5 +1,6 @@
 var express = require('express')
 const bcrypt = require('bcrypt')
+const User = require('./models/User')
 
 // Create a router object
 var router = express.Router()
@@ -12,18 +13,23 @@ router.get('/', (req, res) => {
 // New user registration
 router.post('/register', async (req, res) => {
 
+    let info
+
     try {
         // Hash password with bcrypt before saving it to the database
         const saltRounds = 10
         const passwordHash = await bcrypt.hash(req.body.password, saltRounds)
-        saveUser(req.body.username, passwordHash)
+        //saveUser(req.body.username, passwordHash)
+        let newUser = new User({ username: req.body.username, password: passwordHash, score: 20 })
+        let usr = await newUser.save()
+        info = { username: usr.username }
     }
-    catch (exception) {
-        console.log(`Error on registering user: ${exception}`)
+    catch (e) {
+        console.log(`Error on registering user: ${e}`)
+        info = e
     }
-    
-    // TODO: Send back user info or error if error occurred
-    res.send().status(200)
+
+    res.send(info).status(200)
 })
 
 // User login
@@ -31,10 +37,12 @@ router.post('/login', async (req, res) => {
 
     let name
     let points
+    let info
 
     try {
         // Find user by username
         const foundUser = await User.findOne({ username: req.body.username })
+        console.log('foundUser is ', foundUser)
 
         if (foundUser) {
 
@@ -42,27 +50,30 @@ router.post('/login', async (req, res) => {
             const passwordsMatch = await bcrypt.compare(req.body.password, foundUser.password)
 
             if (passwordsMatch) {
-                // Get score
+                // Get user's score
                 const score = foundUser.score
                 // Return username and score
                 name = req.body.username
                 points = score
+                info = { username: name, score: points }
             }
             else {
                 console.log('Wrong password')
+                info = 'error: Wrong password'
             }
         }
         else {
             console.log('Wrong user credentials')
+            info = 'error: Wrong user credentials'
         }
-
     }
-    catch (exception) {
-        console.log(`Error on logging in user: ${exception}`)
+    catch (e) {
+        console.log(`Error on logging in user: ${e}`)
+        info = e
     }
     
     // TODO: Send back user info or error if error occurred
-    res.send({ username: name, score: points }).status(200)
+    res.send(info).status(200)
 })
 
 // Catch requests to all routes that won't be served

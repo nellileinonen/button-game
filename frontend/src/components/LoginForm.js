@@ -19,14 +19,17 @@ const LoginForm = () => {
         event.preventDefault()
         
         try {
-            console.log(username, password)
             // Returned info of the user to be saved to Redux store
-            const user = await loginUser({ username, password })
+            const response = await loginUser({ username, password })
             // Save username and score to Redux store
-            dispatch(addUsername(user.username))
-            dispatch(addScore(user.score))
+            dispatch(addUsername(response.username))
+            dispatch(addScore(response.score))
         } catch (e) {
+            // TODO: Inform the user of the problems with login
             console.log(`Problems with login: ${e}`)
+            // Clear form fields
+            setUsername('')
+            setPassword('')
         }
     }
     
@@ -35,20 +38,24 @@ const LoginForm = () => {
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <div>
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="usernameLogin">Username</label>
                     <input
                     type="text"
                     value={username}
                     name="username"
+                    id="usernameLogin"
+                    required
                     onChange={({ target }) => setUsername(target.value)}
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="passwordLogin">Password</label>
                     <input
                     type="password"
                     value={password}
                     name="password"
+                    id="passwordLogin"
+                    required
                     onChange={({ target }) => setPassword(target.value)}
                     />
                 </div>

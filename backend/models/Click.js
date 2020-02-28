@@ -1,11 +1,10 @@
-'use strict'
-
 const mongoose = require('mongoose')
 
-let counterSchema = new mongoose.Schema({
+// Define click Schema. Click will only have and id
+let clickSchema = new mongoose.Schema({
 })
 
 // Compile schema to model
-const Click = mongoose.model('Click', counterSchema)
+const Click = mongoose.model('Click', clickSchema)
 
 module.exports = Click

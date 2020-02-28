@@ -65,12 +65,6 @@ const saveClick = async () => {
     await newClick.save()
 }
 
-// Function to save a new user to the database
-const saveUser = async (name, pwd) => {
-    let newUser = new User({ username: name, password: pwd, score: 20 })
-    await newUser.save()
-}
-
 // Function to update user's score in the database
 const updateScore = async (name, scr) => {
     // Find user by username and update score
