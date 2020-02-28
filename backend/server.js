@@ -4,14 +4,13 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const bcrypt = require('bcrypt')
-
-const app = express()
-const server = http.Server(app);
-const io = require('socket.io')(server);
-
+var router = require('./routes')
 const User = require('./models/User')
 const Click = require('./models/Click')
+
+const app = express()
+const server = http.Server(app)
+const io = require('socket.io')(server)
 
 const port = process.env.PORT || 8000
 
@@ -24,10 +23,14 @@ app.use(cors())
 // Use body parser to get info on request body
 app.use(bodyParser.json())
 
+// Router module
+app.use('/', router)
+
 
 /* Database connection */
 
-mongoose.connect(process.env.MONGODB_URL, {
+// Connection url fetched from .env file
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -127,70 +130,4 @@ io.on('connect', async (socket) => {
 
 server.listen(port, () => {
     console.log(`Server listening on port ${port}`)
-})
-
-/* Routes */
-
-app.get('/', (req, res) => {
-    res.send('Server up').status(200)
-})
-
-
-
-// New user registration
-app.post('/register', async (req, res) => {
-
-    try {
-        // Hash password with bcrypt before saving it to the database
-        const saltRounds = 10
-        const passwordHash = await bcrypt.hash(req.body.password, saltRounds)
-        saveUser(req.body.username, passwordHash)
-    }
-    catch (exception) {
-        console.log(`Error on registering user: ${exception}`)
-    }
-    
-    // TODO: Send back user info or error if error occurred
-    res.send().status(200)
-})
-
-
-
-// User login
-app.post('/login', async (req, res) => {
-
-    let name
-    let points
-
-    try {
-        // Find user by username
-        const foundUser = await User.findOne({ username: req.body.username })
-
-        if (foundUser) {
-
-            // Compare passwords
-            const passwordsMatch = await bcrypt.compare(req.body.password, foundUser.password)
-
-            if (passwordsMatch) {
-                // Get score
-                const score = foundUser.score
-                // Return username and score
-                name = req.body.username
-                points = score
-            }
-            else {
-                console.log('Wrong password')
-            }
-        }
-        else {
-            console.log('Wrong user credentials')
-        }
-
-    }
-    catch (exception) {
-        console.log(`Error on logging in user: ${exception}`)
-    }
-    
-    // TODO: Send back user info or error if error occurred
-    res.send({ username: name, score: points }).status(200)
 })
