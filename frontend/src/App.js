@@ -3,7 +3,7 @@ import './App.css'
 import { useSelector } from 'react-redux'
 import LoginForm from './components/LoginForm'
 import RegistrationForm from './components/RegistrationForm'
-//import Restart from './components/Restart'
+import Restart from './components/Restart'
 import Logout from './components/Logout'
 import AwardInfo from './components/AwardInfo'
 import Score from './components/Score'
@@ -38,6 +38,7 @@ const App = () => {
             
             <div>
                 <Logout />
+                <Restart />
             </div>
             
             :

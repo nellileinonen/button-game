@@ -29,6 +29,8 @@ const scoreReducer = (state = initialState, action) => {
             return action.data.score
         case 'REMOVE_SCORE':
             return null
+        case 'server/RESTORE_SCORE':
+            return action.data.score
         default:
             return state
     }

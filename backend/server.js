@@ -93,7 +93,7 @@ io.on('connect', async (socket) => {
     // Listen on new clicks coming from the client
     socket.on('action', (action) => {
 
-        // On every game button push, new click ans user score are saved to the database
+        // On every game button push, new click and user score are saved to the database
         if (
         action.type === 'server/PUSH' ||
         action.type === 'server/PUSH_4_POINTS' || 
@@ -108,6 +108,11 @@ io.on('connect', async (socket) => {
             socket.broadcast.emit('action', { type: 'server/ADD_CLICK' })
             // Save score to the database
             console.log(`For ${action.data.username} put score ${action.data.score}`)
+            updateScore(action.data.username, action.data.score)
+        }
+
+        // On restart after game over, user's score is returned to 20 points
+        if (action.type === 'server/RESTORE_SCORE') {
             updateScore(action.data.username, action.data.score)
         }
     })
@@ -165,7 +170,7 @@ app.post('/login', async (req, res) => {
 
             // Compare passwords
             const passwordsMatch = await bcrypt.compare(req.body.password, foundUser.password)
-            
+
             if (passwordsMatch) {
                 // Get score
                 const score = foundUser.score

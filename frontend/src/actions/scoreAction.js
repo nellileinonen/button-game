@@ -17,3 +17,11 @@ export const createScore = () => ({
 export const removeScore = () => ({
     type: 'REMOVE_SCORE'
 })
+
+export const restoreScore = (username) => ({
+    type: 'server/RESTORE_SCORE',
+    data: {
+        username: username,
+        score: 20
+    }
+})
