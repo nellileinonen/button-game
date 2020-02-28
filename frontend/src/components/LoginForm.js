@@ -26,7 +26,7 @@ const LoginForm = () => {
             dispatch(addUsername(user.username))
             dispatch(addScore(user.score))
         } catch (e) {
-            console.log(e)
+            console.log(`Problems with login: ${e}`)
         }
     }
     

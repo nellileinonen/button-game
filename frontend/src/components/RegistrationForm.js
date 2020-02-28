@@ -18,9 +18,10 @@ const RegistrationForm = () => {
         event.preventDefault()
 
         try {
-            console.log(username, password)
+            // TODO: Check if the user is ok. Now server does not send anythong back
             const user = await registerUser({ username, password })
             console.log(user)
+
             dispatch(addUsername(username))
             dispatch(createScore())
         } catch (e) {

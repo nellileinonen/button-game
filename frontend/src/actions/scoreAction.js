@@ -3,7 +3,7 @@
 export const addScore = (score) => ({
     type: 'ADD_SCORE',
     data: {
-        score
+        score: score
     }
 })
 

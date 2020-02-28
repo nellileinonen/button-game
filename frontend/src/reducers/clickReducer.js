@@ -2,16 +2,24 @@
 const initialState = null
 
 const clickReducer = (state = initialState, action) => {
+
     switch (action.type) {
-        // Action of type server/PUSH happens when the game button is clicked
+        // When the game button is clicked, an action starting with 'server/PUSH' is dispatched
         case 'server/PUSH':
             // Clicking the game button adds 1 click to the total amount of clicks in the game
             // to the Redux store
             return state + 1
-        // Action of type server/ALL_CLICKS happens when the page is refreshed or browser is reopened
+        case 'server/PUSH_4_POINTS':
+            return state + 1
+        case 'server/PUSH_39_POINTS':
+            return state + 1
+        case 'server/PUSH_249_POINTS':
+            return state + 1
+        case 'server/PUSH_20_POINTS':
+            return state + 1
         case 'server/ALL_CLICKS':
             return action.allClicks
-        // Add a click to the Redux store after someone else has clicked the game button
+        // When someone else has clicked the button, server sends and action of type 'server/ADD_CLICK'
         case 'server/ADD_CLICK':
             return state + 1
         default:

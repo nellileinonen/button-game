@@ -6,8 +6,6 @@ import axios from 'axios'
 const url = 'http://localhost:8000/register'
 
 export const registerUser = async (credentials) => {
-    console.log('In registration')
     const response = await axios.post(url, credentials)
-    console.log(response)
     return response.data
 }

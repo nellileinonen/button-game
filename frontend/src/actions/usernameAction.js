@@ -8,6 +8,6 @@ export const addUsername = (username) => ({
     // Username Redux store
     type: 'ADD_USERNAME',
     data: {
-        username
+        username: username
     }
 })
