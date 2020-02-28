@@ -14,9 +14,6 @@ const clickReducer = (state = initialState, action) => {
         // Add a click to the Redux store after someone else has clicked the game button
         case 'server/ADD_CLICK':
             return state + 1
-        // TODO: DELETTE THIS. For testing only
-        case 'server/ADD_500':
-            return state + 500
         default:
             return state
     }
