@@ -10,7 +10,7 @@ import AlertTemplate from 'react-alert-template-basic'
 // Alert cofiguration
 const options = {
     position: 'middle',
-    timeout: 2000,
+    timeout: 1000,
     offset: '30px',
     transition: 'fade'
 }
