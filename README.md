@@ -30,13 +30,22 @@ Clone this repoitory.
 
 Go to the backend folder and create there a .env file based on the example given in the .env.example file.
 
+In backend folder, install the dependecies
+```
+npm start
+```
+
 Then run 
 ```
 npm start
 ```
 to start the sever.
 
-Then go to the frontend folder and run
+Then go to the frontend folder, install dependencies 
+```
+npm start
+```
+and write
 ```
 npm start
 ```
