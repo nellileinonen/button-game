@@ -30,26 +30,26 @@ The frontend is made with React and Redux. You can find the frontend files on th
 
 You must have Node installed on your computer. If you don't have it yet, check here: https://nodejs.org/en/download/
 
-After that, clone this repository 
+After that, clone this repository:
 ```
 git clone https://github.com/nellileinonen/button-game.git
 ```
-
-Go to the frontend folder where you can find the code that is relevant to the game frontend
+Go to the newly created button-game folder:
+```
+cd button-game
+```
+Go to the frontend folder where you can find the code that is relevant to the game frontend:
 ```
 cd frontend
 ```
-
-Install dependencies by typing
+Install dependencies by typing:
 ```
 npm install
 ```
-
-Then run 
+Then run:
 ```
 npm start
 ```
-
 After this, the game should be up and running in development mode!
 
 ## To do
