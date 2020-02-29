@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 var uniqueValidator = require('mongoose-unique-validator')
 
-// uniqueValidator caused "collection.ensureIndex is deprecated" error
-// so createIndexes is used instead
+// Besause the uniqueValidator caused "collection.ensureIndex is deprecated" error
+// createIndexes is used instead of that 
 mongoose.set('useCreateIndex', true)
 
 // Define user Schema. User has username, password and score, which are all required
@@ -26,7 +26,7 @@ let userSchema = new mongoose.Schema({
     }
 })
 
-// Apply th unique validation plugin to userSchema
+// Apply the unique validator plugin to userSchema
 userSchema.plugin(uniqueValidator)
 
 // Compile schema to model

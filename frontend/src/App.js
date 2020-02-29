@@ -17,6 +17,7 @@ const App = () => {
     return (
         <div className="App">
             <h1>Button game</h1>
+
             {// Show login and registration forms only if there is no username in Redux store.
             // Otherwise, show logout button, score and game button.
             username === null
@@ -49,6 +50,7 @@ const App = () => {
                 <Score />
                 <Button />
             </div>}
+            
         </div>
     )
 }

@@ -12,24 +12,25 @@ const app = express()
 const server = http.Server(app)
 const io = require('socket.io')(server)
 
+// Define the port that the server will listen
 const port = process.env.PORT || 8000
 
-// Configure dotenv
+// Configure dotenv that loads environment variables from a .env file
 dotenv.config()
 
-// Allow cors
+// Enable CORS
 app.use(cors())
 
 // Use body parser to get info on request body
 app.use(bodyParser.json())
 
-// Router module
+// Use the router module
 app.use('/', router)
 
 
 /* Database connection */
 
-// Connection url fetched from .env file
+// Connect to the database. Database connection URI is fetched from .env file
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -46,7 +47,7 @@ db.once('open', async () => {
 })
 
 
-/* Database handling functions */
+/* Database handling helper functions */
 
 // Function to count clicks on the database. Returns the amount of clicks
 const countClicks = async () => {
