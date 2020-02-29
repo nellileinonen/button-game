@@ -24,6 +24,9 @@ app.use(cors())
 // Use body parser to get info on request body
 app.use(bodyParser.json())
 
+// App on Heroku: use build version of React app
+app.use(express.static('build'))
+
 // Use the router module
 app.use('/', router)
 
@@ -33,7 +36,8 @@ app.use('/', router)
 // Connect to the database. Database connection URI is fetched from .env file
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  // Because of Heroku: set false because causes errors when true
+  useUnifiedTopology: false
 })
 
 const db = mongoose.connection
