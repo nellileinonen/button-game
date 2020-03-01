@@ -1,4 +1,4 @@
-/* Action creator that defines actions based on the total amount of clicks in the game 
+/* Action creators that define actions based on the total amount of clicks in the game 
    after the game button click.
 */
 

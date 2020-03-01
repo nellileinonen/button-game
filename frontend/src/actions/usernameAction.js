@@ -1,4 +1,4 @@
-/* Action creator that defines actions for handling username in Redux store. */
+/* Action creators that define actions for handling username in Redux store. */
 
 export const addUsername = (username) => ({
     

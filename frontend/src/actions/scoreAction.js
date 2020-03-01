@@ -1,4 +1,4 @@
-/* Action creator that defines actions for saving score to Redux store.  */
+/* Action creators that define actions for saving score to Redux store.  */
 
 export const addScore = (score) => ({
     type: 'ADD_SCORE',

@@ -39,7 +39,7 @@ const Button = () => {
     }
 
     return (
-        <button onClick={handleClick}>Push!</button>
+        <button onClick={handleClick}>Click!</button>
     )
 }
 
