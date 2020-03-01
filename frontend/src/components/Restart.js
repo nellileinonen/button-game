@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { restoreScore } from '../actions/scoreAction'
+import { Button } from 'react-bootstrap'
 
 const Restart = () => {
 
@@ -17,7 +18,7 @@ const Restart = () => {
     return (
         <div>
             <p>Game over</p>
-            <button onClick={handleClick}>Restart</button>
+            <Button variant="light" className="green-button" onClick={handleClick}>Restart</Button>
         </div>
     )
 }

@@ -6,10 +6,11 @@ const AwardNotification = ({ award }) => {
     if (award === null) {
         return null
     }
+
     return (
-        <div>
-            <p>+ {award}</p>
-        </div>
+        <>
+            <p id="award-notification">+ {award}</p>
+        </>
     )
 }
 

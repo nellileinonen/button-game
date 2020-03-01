@@ -14,8 +14,8 @@ const AwardInfo = () => {
     else {
         // Count clicks to the next award
         while (!(clicks % 10 === 0)) {
-            counter++;
-            clicks++;
+            counter++
+            clicks++
         }
     }
     

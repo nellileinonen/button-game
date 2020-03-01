@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { addUsername } from '../actions/usernameAction'
 import { createScore } from '../actions/scoreAction'
 import { registerUser } from '../services/registerService'
+import { Form, Button } from 'react-bootstrap'
 
 const RegistrationForm = () => {
     
@@ -59,11 +60,12 @@ const RegistrationForm = () => {
 
     return (
         <div className="form">
+            <p id="instruction">Or if this is your first time here:</p>
             <h2>Register</h2>
-            <form onSubmit={handleRegister}>
-                <div>
-                    <label htmlFor="usernameRegister">Username</label>
-                    <input
+            <Form onSubmit={handleRegister}>
+                <Form.Group>
+                    <Form.Label htmlFor="usernameRegister">Username</Form.Label>
+                    <Form.Control
                     type="text"
                     value={username}
                     name="username"
@@ -71,10 +73,10 @@ const RegistrationForm = () => {
                     required
                     onChange={({ target }) => setUsername(target.value)}
                     />
-                </div>
-                <div>
-                    <label htmlFor="passwordRegister">Password</label>
-                    <input
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="passwordRegister">Password</Form.Label>
+                    <Form.Control
                     type="password"
                     value={password}
                     name="password"
@@ -82,10 +84,10 @@ const RegistrationForm = () => {
                     required
                     onChange={({ target }) => setPassword(target.value)}
                     />
-                </div>
-                <div>
-                    <label htmlFor="passwordAgain">Password again</label>
-                    <input
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="passwordAgain">Password again</Form.Label>
+                    <Form.Control
                     type="password"
                     value={passwordAgain}
                     name="passwordAgain"
@@ -93,9 +95,9 @@ const RegistrationForm = () => {
                     required
                     onChange={({ target }) => setPasswordAgain(target.value)}
                     />
-                </div>
-                <button type="submit">Register</button>
-            </form>
+                </Form.Group>
+                <Button variant="light" className="green-button" type="submit">Register</Button>
+            </Form>
         </div>
     )
 }

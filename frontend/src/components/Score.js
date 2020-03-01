@@ -6,7 +6,7 @@ const Score = () => {
     const score = useSelector(state => state.score)
     
     return (
-        <p>{score}</p>
+        <p id="score">{score}</p>
     )
 }
 

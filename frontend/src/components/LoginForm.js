@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { addUsername } from '../actions/usernameAction'
 import { addScore } from '../actions/scoreAction'
 import { loginUser } from '../services/loginService'
+import { Form, Button } from 'react-bootstrap'
 
 const LoginForm = () => {
 
@@ -36,10 +37,10 @@ const LoginForm = () => {
     return (
         <div className="form">
             <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <div>
-                    <label htmlFor="usernameLogin">Username</label>
-                    <input
+            <Form onSubmit={handleLogin}>
+                <Form.Group>
+                    <Form.Label htmlFor="usernameLogin">Username</Form.Label>
+                    <Form.Control
                     type="text"
                     value={username}
                     name="username"
@@ -47,10 +48,10 @@ const LoginForm = () => {
                     required
                     onChange={({ target }) => setUsername(target.value)}
                     />
-                </div>
-                <div>
-                    <label htmlFor="passwordLogin">Password</label>
-                    <input
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="passwordLogin">Password</Form.Label>
+                    <Form.Control
                     type="password"
                     value={password}
                     name="password"
@@ -58,9 +59,9 @@ const LoginForm = () => {
                     required
                     onChange={({ target }) => setPassword(target.value)}
                     />
-                </div>
-                <button type="submit">Login</button>
-            </form>
+                </Form.Group>
+                <Button variant="light" className="green-button" type="submit">Login</Button>
+            </Form>
         </div>
     )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { removeUsername } from '../actions/usernameAction'
 import { removeScore } from '../actions/scoreAction'
+import { Button } from 'react-bootstrap'
 
 const Logout = () => {
 
@@ -17,7 +18,7 @@ const Logout = () => {
     }
 
     return (
-        <button onClick={handleClick}>Logout</button>
+            <Button variant="dark" size="sm" id="logout-button" onClick={handleClick}>Logout</Button>
     )
 }
 

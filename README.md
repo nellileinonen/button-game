@@ -4,7 +4,7 @@ A simple multipalyer game where players earn points by clicking the game button.
 
 Try it here: https://buttongame2020.herokuapp.com/
 
-The game looks quite ugly now, but don't worry, styling will be added soon! Now, continue reading and learn how the game works, how the project is structured and how you can start developing this game yourself.
+Now, if you found your way back here from the game, you will learn how the game works, how the project is structured and how you can start developing this game yourself.
 
 ## Game logic
 
@@ -63,5 +63,3 @@ After this, the game should be up and running in development mode!
 ## To do
 
 - Add notifications on errors during user registration and login so that the user knows what is going on. Now there are major usability problems on registration and login because of the lack of communication.
-- Add styling.
-- Fix position and styling of the award alert.
