@@ -19,7 +19,8 @@ const App = () => {
             <h1>Button game</h1>
 
             {// Show login and registration forms only if there is no username in Redux store.
-            // Otherwise, show logout button, score and game button.
+            // (The app saves Redux store in browser's local storage and deletes it's contents only
+            // on logout. This makes the user stay logged in automatically.)
             username === null
 
             ?
@@ -32,7 +33,10 @@ const App = () => {
 
             :
             
-            // If score is 0, give the user an option to logout or restart
+            // If there is a username in the Redux store and the user's score is 0 or less,
+            // give the user an option to logout or restart.
+            // Otherwise, show logout button, award info (how many clicks is needed to earn more points), 
+            // score and game button
             score <= 0
             
             ? 
