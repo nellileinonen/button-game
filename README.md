@@ -4,7 +4,7 @@ A simple multipalyer game where players earn points by clicking the game button.
 
 Try it here: https://buttongame2020.herokuapp.com/
 
-Now, if you found your way back here from the game, you will learn how the game works, how the project is structured and how you can start developing this game yourself.
+Next you will learn how the game works, how the project is structured and how you can start developing this game yourself.
 
 ## Game logic
 
@@ -18,9 +18,9 @@ More points can be earned by the following rules:
 - 40 points on every 100th
 - 250 points on every 500th game button click in the game.
 
-The total amount of clicks in the counter is not shown to the players. They only see the amount of clicks to the next possibility to earn points. And, according to the rules mentioned above, that is always 10 or less. They are also notified when they win points but losing points only decreases the score shown to the player all the time.
+The total amount of clicks in the counter is not shown to the players. They only see their score and the amount of clicks to the next possibility to earn points. Players are notified when they win points.
 
-The player is given the possibility to restart the game with 20 points in case the points fall to 0.
+The players have the possibility to restart the game with 20 points in case their points fall to 0.
 
 ## Project structure
 
@@ -32,7 +32,7 @@ The frontend is made with React and Redux. The state of the Redux store is saved
 
 Communication between the backend and the frontend is implemented with Axios and Socket.io.
 
-The project is structured so that the root folder has *server.js* file where the Express app lives. *Router.js* file takes care of the routing. The folder *models* holds the models that tell how the data is stored to MongoDB. The files of the React app are in the *frontend* folder. The folder *build* is a built version of the frontend that is in Heroku.
+The project is structured so that the root folder has *server.js* file where the Express app lives. *Router.js* file takes care of the routing. The folder *models* holds the models that tell how the data is stored to MongoDB. The files of the React app are in the *frontend* folder. The folder *build* is a built version of the frontend which is in Heroku.
 
 ## Getting started
 
