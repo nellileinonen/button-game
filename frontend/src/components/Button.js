@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useAlert } from 'react-alert'
 import { push } from '../actions/pushAction'
+import AwardNotification from './AwardNotification'
 
 const Button = () => {
 
-    // Alert will be used if the user wins points on game button click
-    const alert = useAlert()
+    // Local state is used to inform the user of possibly on award
+    const [award, setAward] = useState(null)
 
     // Dispatch is needed to dispatch the state to Redux store
     const dispatch = useDispatch()
@@ -17,29 +17,42 @@ const Button = () => {
     // Username is needed because server must know which user's score to update
     const username = useSelector(state => state.username)
 
-    // User gets award if the amount of clicks in Redux store after this click can be
-    // divided by 500, 100 or 10
-    let award = null
-
     const handleClick = () => {
+
         dispatch(push(username, clicks, score))
-        // If this was a winning click, show user an alert
+
+        // User gets award if the amount of clicks in Redux store after this click can be
+        // divided by 500, 100 or 10
+        // If this was a winning click, show user a notification
         let clicksAfterThis = clicks + 1
         if (clicksAfterThis % 500 === 0) {
-            award = 250
+
+            // Update award information so the award notification will be shown
+            setAward(250)
+
+            // Show award information only for 2 seconds. After that, set back to null
+            setTimeout(() => {
+                setAward(null)
+            }, 2000)
+
         } else if (clicksAfterThis % 100 === 0) {
-            award = 40
+            setAward(40)
+            setTimeout(() => {
+                setAward(null)
+            }, 2000)
         } else if (clicksAfterThis % 10 === 0) {
-            award = 5
-        }
-        
-        if (award) {
-            alert.show(<p>+ {award}</p>)
+            setAward(5)
+            setTimeout(() => {
+                setAward(null)
+            }, 2000)
         }
     }
 
     return (
-        <button onClick={handleClick}>Click!</button>
+        <div>
+            <AwardNotification award={award}/>
+            <button onClick={handleClick}>Click!</button>
+        </div>
     )
 }
 
