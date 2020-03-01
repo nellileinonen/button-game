@@ -3,13 +3,14 @@ import { useDispatch } from 'react-redux'
 import { addUsername } from '../actions/usernameAction'
 import { addScore } from '../actions/scoreAction'
 import { loginUser } from '../services/loginService'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Alert } from 'react-bootstrap'
 
 const LoginForm = () => {
 
     // Form state
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [errorMessage, setErrorMessage] = useState(null)
 
     // Dispatch is needed to dispatch the state to Redux store
     const dispatch = useDispatch()
@@ -26,8 +27,9 @@ const LoginForm = () => {
             dispatch(addUsername(response.username))
             dispatch(addScore(response.score))
         } catch (e) {
-            // TODO: Inform the user of the problems with login
+            // Inform the user of the problems with login
             console.log(`Problems with login: ${e}`)
+            setErrorMessage('Username or password incorrect. Try again!')
             // Clear form fields
             setUsername('')
             setPassword('')
@@ -37,6 +39,11 @@ const LoginForm = () => {
     return (
         <div className="form">
             <h2>Login</h2>
+            {(errorMessage &&
+                <Alert variant="info">
+                    {errorMessage}
+                </Alert>
+            )}
             <Form onSubmit={handleLogin}>
                 <Form.Group>
                     <Form.Label htmlFor="usernameLogin">Username</Form.Label>

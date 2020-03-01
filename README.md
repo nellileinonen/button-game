@@ -59,7 +59,3 @@ Then run:
 npm start
 ```
 After this, the game should be up and running in development mode!
-
-## To do
-
-- Add notifications on errors during user registration and login so that the user knows what is going on. Now there are major usability problems on registration and login because of the lack of communication.

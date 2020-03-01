@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { addUsername } from '../actions/usernameAction'
 import { createScore } from '../actions/scoreAction'
 import { registerUser } from '../services/registerService'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Alert } from 'react-bootstrap'
 
 const RegistrationForm = () => {
     
@@ -11,6 +11,7 @@ const RegistrationForm = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [passwordAgain, setPasswordAgain] = useState('')
+    const [errorMessage, setErrorMessage] = useState(null)
 
     // Dispatch is needed to dispatch the state to Redux store
     const dispatch = useDispatch()
@@ -21,14 +22,14 @@ const RegistrationForm = () => {
 
         // Check that passwords match
         if (password === passwordAgain) {
+
             try {
-                // TODO: Check if the user is ok. Now server does not send anything back
                 const response = await registerUser({ username, password })
-                console.log('User is ', response)
                 
                 if (response.data.errors) {
-                    // TODO: If server sends error, tell user what needs to be done
-                    console.log('Pick another username.')
+                    // Tell the user that username is already in use
+                    console.log('Username already in use. Pick another username.')
+                    setErrorMessage('Username already in use. Pick another one.')
                     // Clear form fields
                     setUsername('')
                     setPassword('')
@@ -40,8 +41,9 @@ const RegistrationForm = () => {
                     dispatch(createScore())
                 }
             } catch (e) {
-                // TODO: Inform the user with problems in registration
-                console.log(`Problems with registration: ${e}`)
+                // Inform the user with problems in registration
+                console.log(`Could not register user: ${e}`)
+                setErrorMessage('Could not register user. Try again!')
                 // Clear form fields
                 setUsername('')
                 setPassword('')
@@ -49,8 +51,9 @@ const RegistrationForm = () => {
             }
         }
         else {
-            // TODO: Inform the user that passwords did not match
+            // Inform the user that passwords did not match
             console.log('Passwords do not match')
+            setErrorMessage('Passwords do not match. Try again!')
             // Clear password fields
             setPassword('')
             setPasswordAgain('')
@@ -62,6 +65,11 @@ const RegistrationForm = () => {
         <div className="form">
             <p id="instruction">Or if this is your first time here:</p>
             <h2>Register</h2>
+            {(errorMessage &&
+                <Alert variant="info">
+                    {errorMessage}
+                </Alert>
+            )}
             <Form onSubmit={handleRegister}>
                 <Form.Group>
                     <Form.Label htmlFor="usernameRegister">Username</Form.Label>
