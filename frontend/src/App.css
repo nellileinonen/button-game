@@ -1,20 +1,39 @@
-.App {
-    margin-top: 10px;
-    padding: 20px 30px 20px 30px;
-    max-width: 500px;
-    text-align: center;
+body {
     background-color: #222629;
-    color: #ffffff;
-    border-radius: 10px;
 }
 
+/* Fexbox container */
+#app {
+    /* TODO: Using vh might cause problems on mobile devices
+       so better solution to set the height to 100% would be good */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 10px 25px 25px 25px;
+    text-align: center;
+    color: #e2dfdf;
+}
+
+/* Logout button to the right upper corner */
+#logout-button {
+    align-self: flex-end;
+}
+
+/* Flexbox game inside main App flexbox */
 #game {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: bottom;
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #2d3236;
 }
 
-h1 {
+h1, #award-notification {
     font-weight: bold;
     padding-bottom: 20px;
 }
@@ -34,23 +53,18 @@ h1 {
     color: #ffffff;
 }
 
-#logout-container {
-    position: relative;
-}
-
-#logout-button {
-    float: right;
-}
-
+/* Award notification is positioned using this as the reference */
 #award-and-button-container {
     position: relative;
+    padding-top: 70px;
+    margin-bottom: 70px;
 }
 
 #award-notification {
     position: absolute;
     top: 0px;
     right: 0px;
-    bottom: 70px;
+    bottom: 0px;
     left: 0px;
 }
 
@@ -62,9 +76,6 @@ h1 {
     border: none;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.479),
                 0 17px 50px 0 rgba(0, 0, 0, 0.404);
-    font-weight: bold;
-    font-size: 25px;
-    color: #489dce;
 }
 
 #gamebutton:hover {

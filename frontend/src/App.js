@@ -53,15 +53,15 @@ const App = () => {
     }
 
     return  (
-        <Container className="App">
+        <div id="app">
             {logout}
-            <div id="game">
+            <Container id="game">
                 <h1>Button game</h1>
-                {restart}
                 {loginRegister}
+                {restart}
                 {gameView}
-            </div>
-        </Container>
+            </Container>
+        </div>
     )
     
 }
