@@ -23,17 +23,18 @@ body {
 /* Game container inside main container */
 #game {
     height: 100vh;
-   /* display: flex;*/
-   /* flex-direction: column;*/
     justify-content: space-around;
-    /*align-items: bottom;*/
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: thick;
+    border-color: #222629d8;
     background-color: #2d3236;
 }
 
 h1 {
     font-weight: bold;
+    padding-top: 20px;
     padding-bottom: 20px;
 }
 
@@ -41,8 +42,18 @@ h1 {
     padding-top: 30px;
 }
 
+#award-info {
+    font-size: 1.2em;
+}
+
+span {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #c67ce9;
+}
+
 #score {
-    font-size: x-large;
+    font-size: 4em;
     font-weight: 700;
 }
 
@@ -52,10 +63,19 @@ h1 {
     color: #ffffff;
 }
 
+#score-award-button {
+    padding-bottom: 5vh;
+    position: relative;
+}
+
 /* Override Alert styling of the award alert */
 #award {
+    /* TODO: Absolute position might cause problems on screens of different sizes */
+    position: absolute;
+    left: 35%;
     background-color: #2d3236;
     border: none;
+    font-size: 2em;
     font-weight: bold;
     color:  #e2dfdf;
 }

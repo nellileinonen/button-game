@@ -29,7 +29,7 @@ const Button = () => {
         if (clicksAfterThis % 500 === 0) {
 
             // Update award information so the award notification will be shown
-            setAward(250)
+            setAward('+ 250')
 
             // Show award information only for 2 seconds. After that, set back to null
             setTimeout(() => {
@@ -37,12 +37,12 @@ const Button = () => {
             }, 2000)
 
         } else if (clicksAfterThis % 100 === 0) {
-            setAward(40)
+            setAward('+ 40')
             setTimeout(() => {
                 setAward(null)
             }, 2000)
         } else if (clicksAfterThis % 10 === 0) {
-            setAward(5)
+            setAward('+ 5')
             setTimeout(() => {
                 setAward(null)
             }, 2000)
@@ -53,7 +53,7 @@ const Button = () => {
         <div>
             {(award &&
                 <Alert variant="success" id="award">
-                    <p>+ {award}</p>
+                    <p>{award}</p>
                 </Alert>
             )}
             <ButtonBootstrap variant="light" id="gamebutton" onClick={handleClick}></ButtonBootstrap>

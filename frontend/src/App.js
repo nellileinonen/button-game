@@ -46,8 +46,10 @@ const App = () => {
             // score and game button
             gameView =  <>
                             <AwardInfo />
-                            <Score />
-                            <Button />
+                            <div id="score-award-button">
+                                <Score />
+                                <Button />
+                            </div>
                         </>
         }
     }
