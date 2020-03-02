@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { removeUsername } from '../actions/usernameAction'
 import { removeScore } from '../actions/scoreAction'
-import { Button } from 'react-bootstrap'
+import Button from 'react-bootstrap/Button'
 
 const Logout = () => {
 

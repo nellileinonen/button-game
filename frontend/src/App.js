@@ -8,7 +8,7 @@ import Logout from './components/Logout'
 import AwardInfo from './components/AwardInfo'
 import Score from './components/Score'
 import Button from './components/Button'
-import { Container } from 'react-bootstrap'
+import Container from 'react-bootstrap/Container'
 
 const App = () => {
 
@@ -53,7 +53,7 @@ const App = () => {
     }
 
     return  (
-        <div id="app">
+        <Container>
             {logout}
             <Container id="game">
                 <h1>Button game</h1>
@@ -61,7 +61,7 @@ const App = () => {
                 {restart}
                 {gameView}
             </Container>
-        </div>
+        </Container>
     )
     
 }

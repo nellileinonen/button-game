@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { push } from '../actions/pushAction'
-import AwardNotification from './AwardNotification'
-import { Button as ButtonBootstrap } from 'react-bootstrap'
+import ButtonBootstrap from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
 
 const Button = () => {
 
@@ -50,8 +50,12 @@ const Button = () => {
     }
 
     return (
-        <div id="award-and-button-container">
-            <AwardNotification award={award}/>
+        <div>
+            {(award &&
+                <Alert variant="success" id="award">
+                    <p>+ {award}</p>
+                </Alert>
+            )}
             <ButtonBootstrap variant="light" id="gamebutton" onClick={handleClick}></ButtonBootstrap>
         </div>
     )

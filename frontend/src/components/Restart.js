@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { restoreScore } from '../actions/scoreAction'
-import { Button } from 'react-bootstrap'
+import Button from 'react-bootstrap/Button'
 
 const Restart = () => {
 

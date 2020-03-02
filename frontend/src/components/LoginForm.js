@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux'
 import { addUsername } from '../actions/usernameAction'
 import { addScore } from '../actions/scoreAction'
 import { loginUser } from '../services/loginService'
-import { Form, Button, Alert } from 'react-bootstrap'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
 
 const LoginForm = () => {
 

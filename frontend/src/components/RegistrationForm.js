@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux'
 import { addUsername } from '../actions/usernameAction'
 import { createScore } from '../actions/scoreAction'
 import { registerUser } from '../services/registerService'
-import { Form, Button, Alert } from 'react-bootstrap'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
 
 const RegistrationForm = () => {
     
