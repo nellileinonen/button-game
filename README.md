@@ -59,3 +59,8 @@ Then run:
 npm start
 ```
 After this, the game should be up and running in development mode!
+
+## To do
+
+- Allowing all CORS is a major security threat. Fix that.
+- Offer more speficic information on what went wrong in login or registration.
