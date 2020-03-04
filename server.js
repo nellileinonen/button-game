@@ -15,10 +15,10 @@ const io = require('socket.io')(server)
 // Define the port that the server will listen
 const port = process.env.PORT || 8000
 
-// Configure dotenv that loads environment variables from a .env file
+// Configure dotenv that loads the environment variables from a .env file
 dotenv.config()
 
-// Enable CORS
+// Enable CORS. ! However, enabling all is problematic for the security! !
 app.use(cors())
 
 // Use body parser to get info on request body
