@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-var router = require('./routes')
+const router = require('./routes')
 const User = require('./models/User')
 const Click = require('./models/Click')
 

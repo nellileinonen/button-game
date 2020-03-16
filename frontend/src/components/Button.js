@@ -25,7 +25,7 @@ const Button = () => {
         // User gets award if the amount of clicks in Redux store after this click can be
         // divided by 500, 100 or 10
         // If this was a winning click, show user a notification
-        let clicksAfterThis = clicks + 1
+        const clicksAfterThis = clicks + 1
         if (clicksAfterThis % 500 === 0) {
 
             // Update award information so the award notification will be shown

@@ -1,9 +1,9 @@
-var express = require('express')
+const express = require('express')
 const bcrypt = require('bcrypt')
 const User = require('./models/User')
 
 // Create a router object
-var router = express.Router()
+const router = express.Router()
 
 // Root only informs that the server is up
 router.get('/', (req, res) => {
@@ -19,8 +19,8 @@ router.post('/register', async (req, res) => {
         // Hash password with bcrypt before saving it to the database
         const saltRounds = 10
         const passwordHash = await bcrypt.hash(req.body.password, saltRounds)
-        let newUser = new User({ username: req.body.username, password: passwordHash, score: 20 })
-        let usr = await newUser.save()
+        const newUser = new User({ username: req.body.username, password: passwordHash, score: 20 })
+        const usr = await newUser.save()
         info = { username: usr.username }
     }
     catch (e) {

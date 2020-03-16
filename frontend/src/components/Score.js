@@ -6,7 +6,10 @@ const Score = () => {
     const score = useSelector(state => state.score)
     
     return (
-        <p id="score">{score}</p>
+        <div>
+            <p className="info-text">Your points:</p>
+            <p id="score">{score}</p>
+        </div>
     )
 }
 

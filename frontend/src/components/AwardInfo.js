@@ -20,7 +20,7 @@ const AwardInfo = () => {
     }
     
     return (
-        <p id="award-info">Next award is only <br /><span>{counter}</span><br /> click{counter !== 1 ? 's' : ''} away!</p>
+        <p className="info-text">Next award is only <br /><span>{counter}</span><br /> click{counter !== 1 ? 's' : ''} away!</p>
     )
 }
 
