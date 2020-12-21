@@ -4,7 +4,9 @@ A simple multipalyer game where players earn points by clicking the game button.
 
 Try it here: https://buttongame2020.herokuapp.com/
 
-Next you will learn how the game works, how the project is structured and how you can start developing this game yourself.
+<br/>
+
+![](button-game.gif)
 
 ## Game logic
 
@@ -63,4 +65,4 @@ After this, the game should be up and running in development mode!
 ## To do
 
 - Allowing all CORS is a major security threat. Fix that.
-- Offer more speficic information on what went wrong in login or registration.
+- Offer more specific information on what went wrong in login or registration.
